@@ -89,7 +89,7 @@
   .score-title { font-size: 13.5px; font-weight: 700; }
   .score-count { font-size: 12.5px; color: #667085; }
   .score-count b { color: #1A1D23; font-size: 15px; }
-  .chips { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; }
   .chip-icon {
     width: 32px; height: 32px; border-radius: 9px; display:flex; align-items:center; justify-content:center;
     margin-bottom: 9px;
@@ -109,6 +109,32 @@
     padding: 6px 12px; border-radius: 100px; border: 1px solid #E4E7EC;
   }
   .pending-badge svg { width: 14px; height: 14px; }
+
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; }
+    .sidebar {
+      position: static; top: auto; height: auto; width: 100%; flex: none;
+      border-right: none; border-bottom: 1px solid #E4E7EC;
+      display: flex; flex-wrap: nowrap; align-items: center; overflow-x: auto;
+      padding: 12px 14px; gap: 4px; -webkit-overflow-scrolling: touch;
+    }
+    .sidebar-title { display: none; }
+    .nav-link { flex: none; white-space: nowrap; margin-bottom: 0; padding: 8px 12px; }
+    .main { padding: 24px 18px 60px; }
+    h1.page-title { font-size: 22px; }
+    .card { padding: 20px; }
+    .pending-card { padding: 20px; }
+  }
+
+  @media (max-width: 640px) {
+    .thumbs { flex-direction: column; align-items: stretch; }
+    .thumb-col { width: 100%; }
+    .arrow { align-self: center; margin-top: 0; transform: rotate(90deg); }
+    .pending-card { flex-direction: column; align-items: flex-start; }
+    .score-row { flex-wrap: wrap; }
+    #lightbox { padding: 16px; }
+    #lightbox-close { top: 10px; right: 12px; width: 36px; height: 36px; }
+  }
 
 </style>
 </head>
